@@ -40,7 +40,9 @@ SECRET_KEY = env('SECRET_KEY')
 # Take environment variables from .env file
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost"])
+DEBUG = env('DEBUG', default=False)
+
 
 
 # Application definition
